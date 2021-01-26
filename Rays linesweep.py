@@ -10,7 +10,7 @@ def createLines(amount):
     for i in range(amount):
         start = (randint(0, 960), randint(0, 540))
         end = (randint(start[0] - 100, start[0] + 100), randint(start[1] - 100, start[1] + 100))
-        if end[1] > start[1]:
+        if end[0] < start[0]:
             temp = start
             start = end
             end = temp
@@ -38,7 +38,7 @@ def createSquareLines(amount):
         usedCords.append((x, y))
         amount -= 1
         start = (x, y)
-        if end[1] > start[1]:
+        if end[0] < start[0]:
             temp = start
             start = end
             end = temp
