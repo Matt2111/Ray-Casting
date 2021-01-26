@@ -42,12 +42,12 @@ class Particle:
         """Sorts the lines and rays based on y value for line-sweeping later"""
         rayLineObjects = list()
         for line in lines:
-            rayLineObjects.append({"pos": line.start.y, "object": line, "type": "start"})
-            rayLineObjects.append({"pos": line.end.y, "object": line, "type": "end"})
+            rayLineObjects.append({"pos": line.start.x, "object": line, "type": "start"})
+            rayLineObjects.append({"pos": line.end.x, "object": line, "type": "end"})
         for ray in rays:
-            rayLineObjects.append({"pos": max(ray.start.y, ray.end.y), "object": ray, "type": "start"})
-            rayLineObjects.append({"pos": min(ray.start.y, ray.end.y), "object": ray, "type": "end"})
-        rayLineObjects.sort(key=lambda x: x["pos"], reverse=True)
+            rayLineObjects.append({"pos": min(ray.start.x, ray.end.x), "object": ray, "type": "start"})
+            rayLineObjects.append({"pos": max(ray.start.x, ray.end.x), "object": ray, "type": "end"})
+        rayLineObjects.sort(key=lambda x: x["pos"])
         return rayLineObjects
 
     def EmitNoCollision(self, position, distance):
