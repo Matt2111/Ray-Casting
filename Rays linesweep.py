@@ -1,7 +1,7 @@
 import pygame
 from Objects import Line
 from random import seed, randint
-from time import clock
+from time import perf_counter as clock
 from Rays import Particle
 
 def createLines(amount):
